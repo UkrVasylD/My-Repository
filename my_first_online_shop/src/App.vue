@@ -1,11 +1,18 @@
 <template>
-  <div id="app">Hello vue</div>
+  <div id="app">
+    Hello vue
+    <shop-wraper />
+  </div>
 </template>
 
 <script>
+import ShopWraper from "./components/ShopWraper.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    ShopWraper,
+  },
 };
 </script>
 
