@@ -47,7 +47,8 @@ export default {
   },
   methods: {
     sendDataToParent() {
-      this.emit("sendId", this.product_data.id);
+      // console.log(this.product_data.id);
+      this.$emit("sendId", this.product_data.id);
     },
   },
 };
