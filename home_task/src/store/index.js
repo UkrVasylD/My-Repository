@@ -23,4 +23,24 @@ export default {
     productsList.push(product); //Додаємо новий об"єкт-товар у список
     this.writeProducts(productsList); //Зберігаємо список товарів у localStorage
   },
+  deleteProduct: function (idToDelete) {
+    let productsList = this.readProducts(); //Зчитуємо список (масив) товарів з localStorage
+    productsList = productsList.filter((item) => item.id !== idToDelete); //Видалили з масиву продукт
+    this.writeProducts(productsList); //Зберігаємо список товарів у localStorage
+  },
+  updateProduct(product) {
+    let productsList = this.readProducts(); //Зчитуємо список (масив) товарів з localStorage
+    const productIndex = productsList.findIndex(
+      (item) => item.id === product.id
+    );
+    if (productIndex >= 0)
+      productsList[productIndex] = {
+        ...product,
+      };
+    this.writeProducts(productsList); //Зберігаємо список товарів у localStorage
+  },
+  getProductById(id) {
+    let productsList = this.readProducts(); //Зчитуємо список (масив) товарів з localStorage
+    return productsList.find((item) => item.id === id);
+  },
 };
