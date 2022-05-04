@@ -1,18 +1,19 @@
 <template>
   <div>
-    HOME
-
-    <product-list />
+    Edit
+    <div>
+      <product-editir />
+    </div>
   </div>
 </template>
 
 <script>
-import ProductList from "../../components/ProductList";
+import ProductEditir from "@/components/ProductEditir";
 
 export default {
-  name: "FirstComponentHome",
+  name: "v-Edit",
   components: {
-    ProductList,
+    ProductEditir,
   },
   methods: {},
 };

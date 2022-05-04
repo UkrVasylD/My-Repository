@@ -1,18 +1,18 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 // 1. Define route components.
 // These can be imported from other files
-import FirstComponentHome from "@/Pages/FirstComponentHome";
-import SecondComponent from "@/Pages/SecondComponent";
+import V_Home from "@/Pages/V_Home";
+import V_Edit from "@/Pages/V_Edit";
 
 // 2. Define some routes
 // Each route should map to a component.
 // We'll talk about nested routes later.
 const routes = [
-  { path: "/", component: FirstComponentHome, name: "First" },
+  { path: "/", component: V_Home, name: "Home" },
   {
-    path: "/SecondComponent/:id?",
-    component: SecondComponent,
-    name: "Second",
+    path: "/edit/:id?",
+    component: V_Edit,
+    name: "Edit",
   },
 ];
 

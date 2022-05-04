@@ -1,21 +1,22 @@
 <template>
   <div>
-    <div v-if="isDataEmpty">
-      The product list is not define. Please load data
-      <button>Load</button>
+    <div>
+      <button @click="onLoad">Load</button>
     </div>
-    <div v-else>
+    <div v-for="product in productList" :key="product.id">
       <product-item
-        v-for="product in productList"
-        :key="product.id"
-        :product="product"
+        :productObj="product"
+        @edit="onShowEditPage(product.id)"
+        @delete="onDelete(product.id)"
       />
     </div>
   </div>
 </template>
 
 <script>
-import ProductItem from "@/components/ProductList/ProductItem";
+import ProductItem from "./ProductItem";
+import store from "@/store";
+
 export default {
   name: "ProductList",
 
@@ -28,12 +29,24 @@ export default {
       productList: [],
     };
   },
-  computed: {
-    isDataEmpty() {
-      return this.productList.length === 0;
+
+  methods: {
+    onLoad() {
+      this.productList = store.readProducts();
     },
+    onShowEditPage(idToEdit) {
+      this.$router.push({ name: "Edit", params: { id: idToEdit } });
+    },
+    onDelete(idToDelete) {
+      store.deleteProduct(idToDelete);
+      this.onLoad();
+    },
+  },
+
+  mounted() {
+    this.onLoad();
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="css" scoped></style>

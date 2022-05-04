@@ -1,33 +1,36 @@
 <template>
   <div>
-    EDIT
-
-    {{ $route.params.id }}
     <div>
-      <label> Title <input type="text" v-model="title" /></label>
+      <label> Prodect title <input v-model="title" type="text" /> </label>
     </div>
     <div>
-      <label> Price <input type="text" v-model.number="price" /></label>
+      <label>
+        Prodect price <input v-model.number="price" type="number" />
+      </label>
     </div>
     <div>
-      <button @click="onSave">{{ btnText }}</button>
+      <button @click="onClick">{{ btnTitle }}</button>
     </div>
   </div>
 </template>
 
 <script>
 import store from "@/store";
-
 export default {
-  name: "SecondComponent",
+  name: "ProductEditir",
+
+  components: {},
+
   data() {
     return {
       title: null,
       price: null,
     };
   },
+
   computed: {
-    btnText() {
+    btnTitle() {
+      console.log(this.$route.params.id);
       if (this.$route.params.id) {
         return "Save";
       } else {
@@ -37,7 +40,7 @@ export default {
   },
 
   methods: {
-    onSave() {
+    onClick() {
       if (this.$route.params.id) {
         store.updateProduct({
           id: this.$route.params.id,
@@ -47,8 +50,16 @@ export default {
       } else {
         store.addProduct(this.title, this.price);
       }
-      this.router.push({ name: "First" });
+      this.$router.push({ name: "Home" });
     },
+  },
+
+  mounted() {
+    if (this.$route.params.id) {
+      const product = store.getProductById(this.$route.params.id);
+      this.title = product.title;
+      this.price = product.price;
+    }
   },
 };
 </script>

@@ -1,17 +1,9 @@
 <template>
-  <div>
-    <div>
-      {{ product.title }}
-    </div>
-    <div>
-      {{ product.price }}
-    </div>
-    <div>
-      <button @click="$emit('edit')">Edit</button>
-    </div>
-    <div>
-      <button @click="$emit('delete')">Delete</button>
-    </div>
+  <div class="product-item">
+    <div>{{ productObj.title }}</div>
+    <div>{{ productObj.price }}</div>
+    <div><button @click="$emit('edit')">Edit</button></div>
+    <div><button @click="$emit('delete')">Delete</button></div>
   </div>
 </template>
 
@@ -20,12 +12,16 @@ export default {
   name: "ProductItem",
 
   props: {
-    product: {
+    productObj: {
       type: Object,
-      default: () => {},
+      default: () => ({}),
     },
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="css" scoped>
+.product-item {
+  display: flex;
+}
+</style>
