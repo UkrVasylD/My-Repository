@@ -51,8 +51,12 @@ export default {
   },
 
   methods: {
-    onAddNewUser() {},
-    onShowInfo(userId) {},
+    onAddNewUser() {
+      this.$router.push({ name: "edit" });
+    },
+    onShowInfo(userId) {
+      this.$router.push({ name: "edit", params: { id: userId } });
+    },
   },
 
   mounted() {
@@ -64,5 +68,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

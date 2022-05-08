@@ -72,8 +72,13 @@ export default {
       this.$router.push({ name: "home" });
     },
   },
+
+  mounted() {
+    if (this.$route.params.id) {
+      this.user = store.getUserById(this.$route.params.id);
+    }
+  },
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="css" scoped></style>
