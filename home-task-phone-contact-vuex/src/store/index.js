@@ -1,45 +1,50 @@
 import { createStore } from "vuex";
+import { v4 as uuidv4 } from "uuid";
 
 // Create a new store instance.
 const store = createStore({
   //Розділ, де описумєо глобальні змінні додатку
   state() {
     return {
-      count: 0,
-      message: "Initial text",
-      input_message: null,
+      userList: [],
     };
   },
   //Функції, які здійснюють зчитування значень з стейта і які ми можемо використати у компонентах
   getters: {
     //   getCount: {count} => count
-    getCount: (state) => state.count,
-    getMessage: (state) => state.message,
-    getMyText: (state) => state.input_message,
+    getUsers: (state) => state.userList,
+    // getUserById: (state, id) => state.userList.find((item) => item.id === id),
   },
   //Розділ, де описуємо функції, які мають право робити зміни у стейті
   mutations: {
-    increment(state, val) {
-      state.count += val;
+    addUser(state, userData) {
+      const user = {
+        id: uuidv4(),
+        ...userData,
+      };
+      state.userList.push(user);
     },
-    setMessage(state, newMessage) {
-      state.message = newMessage;
+    updateUser(state, user) {
+      const userIndex = state.userList.findIndex((item) => item.id === user.id);
+      if (userIndex >= 0)
+        state.userList[userIndex] = {
+          ...user,
+        };
     },
-    setMyText(state, newText) {
-      state.input_message = newText;
+    deleteUser(state, idToDelete) {
+      state.userList = state.userList.filter((item) => item.id !== idToDelete);
     },
   },
   //Розділ, де описуємо функції, які викликаємо у копонентах, якщо хочемо змінити стейт
   actions: {
-    updateValue({ commit }, payload) {
-      commit("increment", payload);
+    addUser({ commit }, userData) {
+      commit("addUser", userData);
     },
-    updateMessage({ commit }, newMsg) {
-      commit("setMessage", newMsg);
+    updateUser({ commit }, user) {
+      commit("updateUser", user);
     },
-    updateMyText({ commit, dispatch }, newText) {
-      commit("setMyText", newText);
-      dispatch("updateValue", 5);
+    deleteUser({ commit }, idToDelete) {
+      commit("deleteUser", idToDelete);
     },
   },
 });

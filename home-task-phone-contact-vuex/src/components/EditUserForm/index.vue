@@ -35,7 +35,9 @@
 </template>
 
 <script>
-import store from "@/store";
+import { mapActions } from "vuex";
+import { mapGetters } from "vuex";
+
 export default {
   name: "EditUserForm",
 
@@ -46,6 +48,7 @@ export default {
   },
 
   computed: {
+    ...mapGetters(["getUsers"]),
     photoSrc() {
       return this.user.photoSrc ?? require("@/assets/images/user.png");
     },
@@ -61,13 +64,14 @@ export default {
   },
 
   methods: {
+    ...mapActions(["addUser", "updateUser", "deleteUser"]),
     onSave() {
-      if (this.currentUserId) store.updateUser(this.user);
-      else store.addUser(this.user);
+      if (this.currentUserId) this.updateUser(this.user);
+      else this.addUser(this.user);
       this.$router.push({ name: "home" });
     },
     onDelete() {
-      if (this.currentUserId) store.deleteUser(this.currentUserId);
+      if (this.currentUserId) this.deleteUser(this.currentUserId);
 
       this.$router.push({ name: "home" });
     },
@@ -75,7 +79,9 @@ export default {
 
   mounted() {
     if (this.$route.params.id) {
-      this.user = store.getUserById(this.$route.params.id);
+      this.user = this.getUsers.find(
+        (item) => item.id === this.$route.params.id
+      );
     }
   },
 };

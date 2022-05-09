@@ -9,14 +9,13 @@
         <input type="text" v-model="searchUser" />
       </label>
     </div>
-    <div v-if="usersList.length">
+    <div v-if="filteredUsersList.length">
       <user-card
         v-for="user in filteredUsersList"
         :key="user.id"
         :user="user"
         @show-info="onShowInfo(user.id)"
       />
-      <!-- @show-info="onShowInfo" -->
     </div>
     <div v-else>No data</div>
   </div>
@@ -24,8 +23,7 @@
 
 <script>
 import UserCard from "./UserCard";
-import store from "@/store";
-
+import { mapGetters } from "vuex";
 export default {
   name: "UsersList",
 
@@ -35,18 +33,19 @@ export default {
 
   data() {
     return {
-      usersList: [],
+      // usersList: [],
       searchUser: null,
     };
   },
 
   computed: {
+    ...mapGetters(["getUsers"]),
     filteredUsersList() {
       if (this.searchUser)
-        return this.usersList.filter((user) =>
-          user.fullName.includes(this.searchUser)
+        return this.getUsers.filter((user) =>
+          user.secondName.includes(this.searchUser)
         );
-      else return this.usersList;
+      else return this.getUsers;
     },
   },
 
@@ -57,13 +56,6 @@ export default {
     onShowInfo(userId) {
       this.$router.push({ name: "edit", params: { id: userId } });
     },
-  },
-
-  mounted() {
-    this.usersList = store.readList().map((user) => ({
-      ...user,
-      fullName: `${user.name} ${user.secondName}`,
-    }));
   },
 };
 </script>
