@@ -1,14 +1,13 @@
 <template>
-  <div>
+  <div class="userListWraper">
     <div>
       <img :src="user.photoSrc" />
     </div>
-    <div>
-      {{ fullName }}
-    </div>
-    <div>
-      <!-- <button @click="$emit('show-info', user.id)">Info</button> -->
-      <button @click="$emit('show-info')">Info</button>
+    <div class="userRow">
+      <div>
+        {{ fullName }}
+        <button @click="$emit('show-info')">Info</button>
+      </div>
     </div>
   </div>
 </template>
@@ -32,5 +31,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
+.userListWraper {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.userRow {
+  /* display: flex; */
+  border: solid 2px red;
+  background-color: blanchedalmond;
+}
+button {
+  margin-left: 30px;
+}
 </style>
