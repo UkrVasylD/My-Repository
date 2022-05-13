@@ -1,20 +1,12 @@
 <template>
   <div>
-    HOME
-    <div>
-      <main-master-page>
-        <template v-slot:header>
-          My header Заголовок головної сторінки
-          <span><router-link to="/about">About</router-link></span>
-        </template>
-        <template #kontent1> My kontent1 </template>
-        <template #kontent2>
-          <ul>
-            <li>sfdgsg</li>
-          </ul>
-        </template>
-      </main-master-page>
-    </div>
+    <div>HOME</div>
+    <main-master-page>
+      <template v-slot:header>
+        <p>Заголовок головної сторінки</p>
+        <router-link to="/about">About</router-link>
+      </template></main-master-page
+    >
   </div>
 </template>
 

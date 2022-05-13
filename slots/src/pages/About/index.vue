@@ -1,14 +1,22 @@
 <template>
   <div>
-    About
-    <div>
-      <main-master-page>
-        <template v-slot:header>
-          My about Заголовок головної сторінки
-          <button @click="goHome">Home</button>
-        </template>
-      </main-master-page>
-    </div>
+    <div>About</div>
+    <main-master-page>
+      <template v-slot:header>
+        This my project <button @click="goToHome">Home</button>
+      </template>
+      <template v-slot:kontent1>
+        <p>Autor:</p>
+        <ul>
+          <li>I</li>
+          <li>my godfather</li>
+          <li>my neighbor</li>
+        </ul>
+      </template>
+      <template v-slot:kontent2>
+        Main idea. jointly explore the meaning of life</template
+      >
+    </main-master-page>
   </div>
 </template>
 
@@ -23,7 +31,7 @@ export default {
   },
 
   methods: {
-    goHome() {
+    goToHome() {
       this.$router.push({ name: "home" });
     },
   },
