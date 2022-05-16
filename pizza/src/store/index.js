@@ -49,6 +49,13 @@ const store = createStore({
     getcartList: (state) => state.cartList,
     getPizzaById: (state) => (pizzaId) =>
       state.pizzaList.find((item) => item.id === pizzaId),
+    getTotalPrice: (state) =>
+      state.cartList.reduce((prevSum, cartItem) => {
+        const pizza = state.pizzaList.find(
+          (item) => item.id === cartItem.pizzaId
+        );
+        return prevSum + cartItem.count * pizza.price;
+      }, 0),
   },
   //Розділ, де описуємо функції, які мають право робити зміни у стейті
   mutations: {
@@ -67,13 +74,19 @@ const store = createStore({
       }
     },
     decrement(state, cartPizzaId) {
-      console.log("Work");
-      console.log(state.cartList);
-      const indexPizza = state.cartList.findindex(
-        (item) => item.Id === cartPizzaId
+      const indexPizza = state.cartList.findIndex(
+        (item) => item.id === cartPizzaId
       );
-      console.log(indexPizza);
       state.cartList[indexPizza].count--;
+    },
+    increment(state, cartPizzaId) {
+      const indexPizza = state.cartList.findIndex(
+        (item) => item.id === cartPizzaId
+      );
+      state.cartList[indexPizza].count++;
+    },
+    del(state, cartPizzaId) {
+      state.cartList = state.cartList.filter((item) => item.id !== cartPizzaId);
     },
   },
   //Розділ, де описуємо функції, які викликаємо у копонентах, якщо хочемо змінити стейт
@@ -81,11 +94,14 @@ const store = createStore({
     addToCart({ commit }, pizzaId) {
       commit("addToCart", pizzaId);
     },
-    // updateUser({ commit }, user) {
-    //   commit("updateUser", user);
-    // },
+    increment({ commit }, cartPizzaId) {
+      commit("increment", cartPizzaId);
+    },
     decrement({ commit }, cartPizzaId) {
       commit("decrement", cartPizzaId);
+    },
+    del({ commit }, cartPizzaId) {
+      commit("del", cartPizzaId);
     },
   },
 });

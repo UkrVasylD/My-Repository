@@ -14,7 +14,8 @@
     <div>
       {{ pizza.price }}
     </div>
-    <button @click="onIncrement(cartPizzaItem.id)">+</button>
+    <button @click="increment(cartPizzaItem.id)">+</button>
+    <button @click="del(cartPizzaItem.id)">X</button>
   </div>
 </template>
 
@@ -36,11 +37,9 @@ export default {
     pizza() {
       return this.getPizzaById(this.cartPizzaItem.pizzaId);
     },
-
-    methods: {
-      ...mapActions(["decrement"]),
-      // onAddToCart() {},
-    },
+  },
+  methods: {
+    ...mapActions(["decrement", "increment", "del"]),
   },
 };
 </script>

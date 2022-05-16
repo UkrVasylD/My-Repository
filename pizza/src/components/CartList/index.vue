@@ -5,6 +5,7 @@
       :key="pizzaItem.id"
       :cartPizzaItem="pizzaItem"
     />
+    <div>Total price = {{ getTotalPrice }}</div>
   </div>
 </template>
 
@@ -19,7 +20,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["getcartList"]),
+    ...mapGetters(["getcartList", "getTotalPrice"]),
   },
 };
 </script>
