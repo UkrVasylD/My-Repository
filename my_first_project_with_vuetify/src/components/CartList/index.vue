@@ -5,7 +5,7 @@
       :key="cartItem.id"
       :cartItem="cartItem"
     />
-    <!-- <div>Total price = {{ getTotalPrice }}</div> -->
+    <div>Total price = {{ getTotalPrice }}</div>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["cart", "getCartList"]),
+    ...mapGetters(["cart", "getCartList", "getTotalPrice"]),
   },
 };
 </script>

@@ -17,7 +17,15 @@ export default {
     getCartList: (state) => {
       return state.cartList;
     },
+    getTotalPrice: (state, getters, rootState, rootGetters) =>
+      state.cartList.reduce((prevSum, cartItem) => {
+        const product = rootGetters["productToRender/getProductList"].find(
+          (item) => item.id === cartItem.prodId
+        );
+        return prevSum + product.price * cartItem.count;
+      }, 0),
   },
+
   mutations: {
     increment(state, cartItemId) {
       const indexItem = state.cartList.findIndex(
