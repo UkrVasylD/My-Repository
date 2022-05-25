@@ -1,11 +1,11 @@
 <template>
   <div class="PizaaList-wraper">
     <cart-item
-      v-for="pizzaItem in getcartList"
-      :key="pizzaItem.id"
-      :cartPizzaItem="pizzaItem"
+      v-for="cartItem in getCartList"
+      :key="cartItem.id"
+      :cartItem="cartItem"
     />
-    <div>Total price = {{ getTotalPrice }}</div>
+    <!-- <div>Total price = {{ getTotalPrice }}</div> -->
   </div>
 </template>
 
@@ -20,13 +20,9 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["getcartList", "getTotalPrice"]),
+    ...mapGetters(["cart", "getCartList"]),
   },
 };
 </script>
 
-<style lang="css" scoped>
-.PizaaList-wraper {
-  display: flex;
-}
-</style>
+<style lang="css" scoped></style>

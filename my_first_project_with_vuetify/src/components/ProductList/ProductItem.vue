@@ -6,10 +6,10 @@
     <div>
       {{ productItem.name }}
     </div>
-    <div>
-      {{ productItem.price }}
-    </div>
+    <div>{{ productItem.price }} грн.</div>
+
     <button @click="addToCart(productItem.id)">Add to cart</button>
+    <button @click="edit(productItem.id)">Edit</button>
   </div>
 </template>
 
@@ -27,19 +27,30 @@ export default {
   },
 
   methods: {
-    ...mapActions(["addToCart"]),
-    // onAddToCart() {},
+    ...mapActions(["cart", "addToCart"]),
+    edit(id) {
+      this.$router.push({ name: "editor", params: { id: id } });
+    },
   },
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .productItem-container {
   margin: 2%;
   padding: 0.5%;
   border: 2px solid blue;
+  border-radius: 5%;
+  button {
+    background-color: rgb(191, 241, 217);
+    padding: 1% 5%;
+    border-radius: 15px;
+  }
 }
-.productItem-container img {
-  max-width: 250px;
+
+.productItem-container {
+  img {
+    max-width: 250px;
+  }
 }
 </style>

@@ -1,21 +1,21 @@
 <template>
   <div class="CartItem-container">
     <div>
-      <img :src="pizza.imgSrc" alt="" />
+      <img :src="product.imgSrc" alt="" />
     </div>
     <div>
-      {{ pizza.name }}
+      {{ product.name }}
     </div>
     <div>
-      {{ cartPizzaItem.count }}
+      {{ product.price }}
     </div>
-    <button @click="decrement(cartPizzaItem.id)">-</button>
+    <button @click="decrement(cartItem.id)">-</button>
 
     <div>
-      {{ pizza.price }}
+      {{ cartItem.count }}
     </div>
-    <button @click="increment(cartPizzaItem.id)">+</button>
-    <button @click="del(cartPizzaItem.id)">X</button>
+    <button @click="increment(cartItem.id)">+</button>
+    <button @click="del(cartItem.id)">X</button>
   </div>
 </template>
 
@@ -27,15 +27,15 @@ export default {
   name: "CartItem",
 
   props: {
-    cartPizzaItem: {
+    cartItem: {
       type: Object,
       default: () => ({}),
     },
   },
   computed: {
-    ...mapGetters(["getPizzaById"]),
-    pizza() {
-      return this.getPizzaById(this.cartPizzaItem.pizzaId);
+    ...mapGetters(["getProductById"]),
+    product() {
+      return this.getProductById(this.cartItem.productId);
     },
   },
   methods: {
@@ -44,14 +44,16 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .CartItem-container {
   display: flex;
   margin: 20px;
   padding: 10px;
   border: 2px solid blue;
-}
-.CartItem-container img {
-  width: 50px;
+  justify-content: space-around;
+  align-self: center;
+  img {
+    width: 50px;
+  }
 }
 </style>

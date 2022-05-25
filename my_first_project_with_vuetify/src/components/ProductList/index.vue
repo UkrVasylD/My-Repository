@@ -1,7 +1,7 @@
 <template>
-  <div class="PizaaList-wraper">
+  <div class="ProductList-wraper">
     <product-item
-      v-for="product in productList"
+      v-for="product in getProductList"
       :key="product.id"
       :productItem="product"
     />
@@ -18,23 +18,14 @@ export default {
     ProductItem,
   },
 
-  props: {
-    productList: {
-      type: Array,
-      default: () => [],
-    },
-  },
   computed: {
-    ...mapGetters(["getPizzaList"]),
-    name() {
-      return this.data;
-    },
+    ...mapGetters(["productToRender", "getProductList"]),
   },
 };
 </script>
 
-<style lang="css" scoped>
-.PizaaList-wraper {
+<style lang="scss" scoped>
+.ProductList-wraper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

@@ -1,18 +1,30 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import AboutConfectioner from "../views/AboutConfectioner.vue";
-import Shopping from "../views/Shopping.vue";
+import Pie from "../views/Pie.vue";
+import Cart from "../views/Cart.vue";
+import EditPage from "../views/EditPage.vue";
 
 const routes = [
   {
-    path: "/Home",
-    name: "Home",
+    path: "/",
+    name: "home",
     component: Home,
   },
   {
-    path: "/Shopping",
-    name: "Shopping",
-    component: Shopping,
+    path: "/pie/:id?",
+    name: "pie",
+    component: Pie,
+  },
+  {
+    path: "/cart",
+    name: "cart",
+    component: Cart,
+  },
+  {
+    path: "/editor/:id?",
+    name: "editor",
+    component: EditPage,
   },
   {
     path: "/About%20Confectioner",
