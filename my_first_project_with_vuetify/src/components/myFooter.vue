@@ -62,15 +62,20 @@ export default {
 <style lang="scss" scoped>
 .container {
   background-color: rgb(208, 208, 187);
-  display: flex;
-  justify-content: space-between;
-  .order {
-    margin-top: 2%;
-    font-size: 75%;
-    p {
-      margin-top: 8%;
-    }
-  }
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  // display: flex;
+  // justify-content: space-between;
+  // .order {
+  //   margin-top: 2%;
+  //   font-size: 75%;
+  //   p {
+  //     margin-top: 8%;
+  //   }
+  // }
+}
+.order {
+  font-size: 80%;
 }
 .container > div {
   margin: 1%;

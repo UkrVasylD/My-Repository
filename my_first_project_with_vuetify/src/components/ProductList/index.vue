@@ -19,7 +19,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["productToRender", "getProductList"]),
+    ...mapGetters("productToRender", ["getProductList"]),
   },
 };
 </script>

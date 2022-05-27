@@ -27,7 +27,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(["cart", "addToCart"]),
+    ...mapActions("cart", ["addToCart"]),
     edit(id) {
       this.$router.push({ name: "editor", params: { id: id } });
     },

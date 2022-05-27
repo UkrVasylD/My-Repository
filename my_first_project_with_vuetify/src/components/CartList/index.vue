@@ -20,7 +20,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["cart", "getCartList", "getTotalPrice"]),
+    ...mapGetters("cart", ["getCartList", "getTotalPrice"]),
   },
 };
 </script>

@@ -36,12 +36,11 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["productToRender", "getProductById"]),
+    ...mapGetters("productToRender", ["getProductById"]),
   },
 
   methods: {
-    ...mapActions([
-      "productToRender",
+    ...mapActions("productToRender", [
       "saveProduct",
       "addProduct",
       "delProduct",

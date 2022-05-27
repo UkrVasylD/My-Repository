@@ -27,7 +27,7 @@ const routes = [
     component: EditPage,
   },
   {
-    path: "/About%20Confectioner",
+    path: "/about",
     name: "AboutConfectioner",
     component: AboutConfectioner,
   },

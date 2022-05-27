@@ -1,12 +1,13 @@
 <template>
   <div class="container">
-    <div>
+    <div class="header">
       <my-header />
     </div>
+    <div class="kontent">
+      <slot name="kontent"> </slot>
+    </div>
 
-    <slot name="kontent"> </slot>
-
-    <div>
+    <div class="footer">
       <my-footer />
     </div>
   </div>
@@ -28,7 +29,9 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  max-width: 900px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fh 8fr 1fr;
+  // max-width: 900px;
+  // margin: 0 auto;
 }
 </style>

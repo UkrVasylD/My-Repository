@@ -33,13 +33,13 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["getProductById"]),
+    ...mapGetters("productToRender", ["getProductById"]),
     product() {
       return this.getProductById(this.cartItem.productId);
     },
   },
   methods: {
-    ...mapActions(["decrement", "increment", "del"]),
+    ...mapActions("cart", ["decrement", "increment", "del"]),
   },
 };
 </script>

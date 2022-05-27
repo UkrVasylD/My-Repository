@@ -1,13 +1,14 @@
 export default {
+  namespaced: true,
   state: {
     cartList: [
       {
-        id: "132",
+        id: "dsagas",
         productId: "1",
         count: 1,
       },
       {
-        id: "1382",
+        id: "hjfgjhdas",
         productId: "2",
         count: 1,
       },
@@ -20,7 +21,9 @@ export default {
     getTotalPrice: (state, getters, rootState, rootGetters) =>
       state.cartList.reduce((prevSum, cartItem) => {
         const product = rootGetters["productToRender/getProductList"].find(
-          (item) => item.id === cartItem.prodId
+          (item) => {
+            return item.id == cartItem.productId;
+          }
         );
         return prevSum + product.price * cartItem.count;
       }, 0),
