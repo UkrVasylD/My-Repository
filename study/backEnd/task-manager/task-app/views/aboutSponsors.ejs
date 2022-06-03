@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <style>
+      h1 {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <%-include("header.ejs")%>
+    <main>
+      <h1>About</h1>
+      <p>Welcome to company</p>
+      <ul>
+        <% for(item of sponsors){%>
+        <li><%=item.company%> - <%=item.type%></li>
+        <%}%>
+      </ul>
+    </main>
+    <%-include("footer.ejs")%>
+  </body>
+</html>

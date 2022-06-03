@@ -1,0 +1,28 @@
+{
+  "developers": [
+    {
+      "name": "Ivan",
+      "age": 21,
+      "gender": "m"
+    },
+    {
+      "name": "Olga",
+      "age": 18,
+      "gender": "f"
+    }
+  ],
+  "sponsors": [
+    {
+      "company": "Comp gold",
+      "type": "gold"
+    },
+    {
+      "company": "Comp silver",
+      "type": "silver"
+    },
+    {
+      "company": "Comp bronze",
+      "type": "bronze"
+    }
+  ]
+}

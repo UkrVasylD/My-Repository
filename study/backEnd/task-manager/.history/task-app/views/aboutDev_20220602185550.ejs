@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <style>
+      h1 {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <%-include("header.ejs")%>
+    <main>
+      <h1>About</h1>
+      <p>Welcome to company</p>
+      <div>
+        <a href="/about/m">Mens</a>
+        <a href="/about/f">Women</a>
+        <a href="/about">All</a>
+      </div>
+      <ul>
+        <% for(item of developers){%>
+        <li><%=item.name%> - <%=item.age%></li>
+        <%}%>
+      </ul>
+    </main>
+    <%-include("footer.ejs")%>
+  </body>
+</html>

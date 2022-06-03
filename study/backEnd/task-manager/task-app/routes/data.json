@@ -1,0 +1,45 @@
+{
+  "developers": [
+    {
+      "name": "Ivan",
+      "age": 21,
+      "gender": "m"
+    },
+    {
+      "name": "Olga",
+      "age": 18,
+      "gender": "f"
+    }
+  ],
+  "sponsors": [
+    {
+      "company": "Comp gold",
+      "type": "gold"
+    },
+    {
+      "company": "Comp silver",
+      "type": "silver"
+    },
+    {
+      "company": "Comp bronze",
+      "type": "bronze"
+    }
+  ],
+  "taskList": [
+    {
+      "id": 1,
+      "title": "title1",
+      "description": "description1"
+    },
+    {
+      "id": 2,
+      "title": "title2",
+      "description": "description2"
+    },
+    {
+      "id": 3,
+      "title": "title3",
+      "description": "description3"
+    }
+  ]
+}

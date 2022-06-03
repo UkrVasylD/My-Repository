@@ -1,0 +1,12 @@
+{
+  "developers": [
+    {
+      "name": "Ivan",
+      "age": 21
+    },
+    {
+      "name": "Olga",
+      "age": 18
+    }
+  ]
+}

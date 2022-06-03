@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%-include("header.ejs")%>
+    <h1><%= title %></h1>
+    <div>
+      <a href="/people/man">Man</a>
+      <a href="/people/woman">Woman</a>
+      <a href="/people/all">All</a>
+    </div>
+    <p>Welcome to <%= title %></p>
+    <ol>
+      <%for(people of peoples ){%>
+      <li>
+        <a href=""><%=people.name%></a>
+      </li>
+      <%}%>
+    </ol>
+  </body>
+</html>

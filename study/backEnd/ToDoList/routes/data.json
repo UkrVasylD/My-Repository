@@ -1,0 +1,33 @@
+{
+  "tasksList": [
+    {
+      "id": "1",
+      "task": "task1"
+    },
+    {
+      "id": "2",
+      "task": "task2"
+    },
+    {
+      "id": "3",
+      "task": "task3"
+    }
+  ],
+  "people": [
+    {
+      "name": "Ivan",
+      "age": 35,
+      "gender": "man"
+    },
+    {
+      "name": "Petro",
+      "age": 35,
+      "gender": "man"
+    },
+    {
+      "name": "Viktoria",
+      "age": 35,
+      "gender": "woman"
+    }
+  ]
+}

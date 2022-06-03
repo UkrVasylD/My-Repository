@@ -1,0 +1,14 @@
+{
+  "developers": [
+    {
+      "name": "Ivan",
+      "age": 21,
+      "gender": "m"
+    },
+    {
+      "name": "Olga",
+      "age": 18,
+      "gender": "f"
+    }
+  ]
+}
