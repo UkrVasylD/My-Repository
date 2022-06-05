@@ -6,13 +6,11 @@
     <div>
       {{ product.name }}
     </div>
-    <div>
-      {{ product.price }}
-    </div>
+    <div>{{ product.price }} грн.</div>
     <button @click="decrement(cartItem.id)">-</button>
 
     <div>
-      {{ cartItem.count }}
+      <input class="input_weight" v-model="cartItem.count" type="number" /> кг
     </div>
     <button @click="increment(cartItem.id)">+</button>
     <button @click="del(cartItem.id)">X</button>
@@ -46,12 +44,17 @@ export default {
 
 <style lang="scss" scoped>
 .CartItem-container {
-  display: flex;
+  max-width: 75vh;
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: center;
+  align-items: center;
   margin: 20px;
   padding: 10px;
   border: 2px solid blue;
-  justify-content: space-around;
-  align-self: center;
+  .input_weight {
+    width: 50px;
+  }
   img {
     width: 50px;
   }

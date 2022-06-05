@@ -1,9 +1,12 @@
 <template>
-  <div class="container">
-    <div>
+  <div class="editor_container">
+    <div class="">
       <img :src="imgSrc" alt="" />
     </div>
-    <div>Input image src <input v-model="imgSrc" type="text" /></div>
+    <div>
+      <p>Input image src</p>
+      <input v-model="imgSrc" type="text" />
+    </div>
     <div>Input product name <input v-model="name" type="text" /></div>
     <div>Input product price <input v-model="price" type="number" /></div>
     <div>
@@ -89,23 +92,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.editor_container {
   margin: 0 auto;
   max-width: 900px;
-  background-color: rgb(172, 146, 185);
+  background-color: rgb(58, 54, 59);
   color: azure;
   div {
     padding: 1% 3%;
+    display: grid;
+    grid-auto-flow: column;
     input {
       border: solid 2px blue;
       border-radius: 30px;
       background-color: bisque;
     }
+    img {
+      max-width: 250px;
+    }
     button {
-      background-color: rgb(191, 241, 217);
+      background-color: rgb(120, 241, 183);
+      color: black;
       padding: 1% 5%;
       border-radius: 15px;
       margin: 0% 5%;
+      max-width: 25%;
     }
   }
 }

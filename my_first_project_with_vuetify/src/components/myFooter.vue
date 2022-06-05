@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <div class="order">
-      <p>Замовлення приймаються за телефоном 067 409 72 77 з 9.00 до 18.00</p>
+      <p>
+        Замовлення приймаються за телефоном <br />
+        067 409 72 77 з 9.00 до 18.00
+      </p>
       <p>
         Зробіть Ваше замовлення завчасно, за 2-3 дні до бажаної дати отримання.
       </p>
@@ -55,7 +58,7 @@
 
 <script>
 export default {
-  name: "FooterOfPage",
+  name: "myFooter",
 };
 </script>
 
@@ -63,38 +66,6 @@ export default {
 .container {
   background-color: rgb(208, 208, 187);
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  // display: flex;
-  // justify-content: space-between;
-  // .order {
-  //   margin-top: 2%;
-  //   font-size: 75%;
-  //   p {
-  //     margin-top: 8%;
-  //   }
-  // }
-}
-.order {
-  font-size: 80%;
-}
-.container > div {
-  margin: 1%;
-  max-width: 20%;
-}
-.about {
-  padding: 10px;
-}
-.flex-container {
-  display: flex;
-  img {
-    width: 50px;
-    height: 50px;
-    margin: 10px;
-  }
-  .about {
-    h3 {
-      text-align: center;
-    }
-  }
+  grid-template-columns: 2fr repeat(4, 1fr);
 }
 </style>

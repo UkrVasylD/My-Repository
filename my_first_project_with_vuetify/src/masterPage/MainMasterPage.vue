@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="wraper_container">
     <div class="header">
       <my-header />
     </div>
@@ -28,10 +28,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.wraper_container {
+  min-height: 100vh;
   display: grid;
-  grid-template-rows: 1fh 8fr 1fr;
-  // max-width: 900px;
-  // margin: 0 auto;
+
+  grid-template: minmax(100px, auto) 1fr minmax(100px, auto) / 1fr;
+  // grid-template-columns: 1fr;
 }
 </style>

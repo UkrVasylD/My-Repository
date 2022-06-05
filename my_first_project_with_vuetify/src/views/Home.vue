@@ -2,21 +2,21 @@
   <div>
     <!-- Home -->
     <main-master-page>
-      <template v-slot:kontent> <mySlider /></template>
+      <template v-slot:kontent> <myHomeKontent /></template>
     </main-master-page>
   </div>
 </template>
 
 <script>
 import MainMasterPage from "@/masterPage/MainMasterPage.vue";
-import mySlider from "@/components/mySlider.vue";
+import myHomeKontent from "@/components/myHomeKontent.vue";
 
 export default {
   name: "Home",
 
   components: {
     MainMasterPage,
-    mySlider,
+    myHomeKontent,
   },
 };
 </script>
