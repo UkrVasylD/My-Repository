@@ -13,8 +13,9 @@
         </div>
 
         <div class="navigation-item" @click="goToRoutName('cart')">
-          Cart
-          <!-- <img :src="require('../assets/cart-icon.png')" alt="" /> -->
+          <!-- Cart -->
+          <img :src="require('../assets/Icons/cart-icon.svg')" alt="" />
+          {{ getTotalPrice }} грн.
         </div>
       </div>
     </div>
@@ -22,8 +23,13 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "myHeader",
+
+  computed: {
+    ...mapGetters("cart", ["getTotalPrice"]),
+  },
 
   methods: {
     goToRoutName(routName) {

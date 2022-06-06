@@ -26,8 +26,11 @@ export default {
 
 <style lang="scss" scoped>
 .ProductList-wraper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: space-around;
+  grid-auto-rows: 1fr;
+  column-gap: 20px;
+  row-gap: 50px;
 }
 </style>

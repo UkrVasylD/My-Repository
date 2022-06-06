@@ -24,24 +24,32 @@
 
     <div class="social">
       <h3>Social</h3>
-      <div class="flex-container">
-        <div class="logo-images-container">
-          <!-- <img
-            :src="require('@/assets/images/social-logo/fb-logo.png')"
-            alt="No photo"
-          /> -->
+      <div class="social-grid-container">
+        <div class="social_img">
+          <a
+            href="https://www.facebook.com/profile.php?id=100020964107595"
+            target="_blank"
+          >
+            <img
+              :src="require('@/assets/Icons/facebook-icon.svg')"
+              alt="No photo"
+            />
+            <span>facebook </span>
+          </a>
         </div>
-        <div class="logo-images-container">
-          <!-- <img
-            :src="require('@/assets/images/social-logo/instagram-logo.jpeg')"
+        <div class="social_img">
+          <img
+            :src="require('@/assets/Icons/instagram-icon.svg')"
             alt="No photo"
-          /> -->
+          />
+          <span>instagram </span>
         </div>
-        <div class="logo-images-container">
-          <!-- <img
-            :src="require('@/assets/images/social-logo/telegram-logo.png')"
+        <div class="social_img">
+          <img
+            :src="require('@/assets/Icons/twitter-icon.svg')"
             alt="No photo"
-          /> -->
+          />
+          <span>twitter </span>
         </div>
       </div>
     </div>
@@ -67,5 +75,13 @@ export default {
   background-color: rgb(208, 208, 187);
   display: grid;
   grid-template-columns: 2fr repeat(4, 1fr);
+  .social-grid-container {
+    display: grid;
+    grid-auto-flow: row;
+    .social_img > span {
+      // vertical-align: middle;
+      // font-size: 120%;
+    }
+  }
 }
 </style>

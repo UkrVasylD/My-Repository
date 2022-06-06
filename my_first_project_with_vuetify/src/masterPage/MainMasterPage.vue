@@ -31,8 +31,7 @@ export default {
 .wraper_container {
   min-height: 100vh;
   display: grid;
-
   grid-template: minmax(100px, auto) 1fr minmax(100px, auto) / 1fr;
-  // grid-template-columns: 1fr;
+  background: url("@/assets/bg_repeat.jpg") repeat;
 }
 </style>

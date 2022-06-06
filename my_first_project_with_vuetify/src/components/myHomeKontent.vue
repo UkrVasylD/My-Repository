@@ -100,9 +100,18 @@ export default {
   background-color: rgb(219, 240, 233);
 }
 .gallery {
-  // display: grid;
-  // grid-template-rows: minmax(100px, auto) 1fr;
-  // grid-template-columns: 1fr minmax(auto, 1100px) 1fr;
+  display: grid;
+  grid-template-rows: minmax(50px, auto) 1fr;
+  grid-template-columns: 1fr minmax(auto, 1100px) 1fr;
+}
+.gallery__title {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  text-align: center;
+  font-size: 300%;
+  color: red;
+  padding-top: 2vh;
+  background-color: rgb(135, 127, 116, 0.7);
 }
 .gallery__items {
   display: grid;
