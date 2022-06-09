@@ -11,7 +11,9 @@
         <div class="navigation-item" @click="goToRoutName('editor')">
           Editor
         </div>
-
+        <div class="navigation-item phone_svg" @click="changePopUpVisible">
+          <img :src="require('../assets/Icons/phone-icon.svg')" alt="" />
+        </div>
         <div class="navigation-item" @click="goToRoutName('cart')">
           <!-- Cart -->
           <img :src="require('../assets/Icons/cart-icon.svg')" alt="" />
@@ -24,6 +26,8 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
+
 export default {
   name: "myHeader",
 
@@ -32,6 +36,7 @@ export default {
   },
 
   methods: {
+    ...mapActions("popUp", ["changePopUpVisible"]),
     goToRoutName(routName) {
       this.$router.push({ name: routName });
     },
@@ -69,6 +74,9 @@ export default {
           color: rgb(60, 82, 60);
           cursor: pointer;
         }
+      }
+      .phone_svg {
+        min-width: 20px;
       }
     }
   }

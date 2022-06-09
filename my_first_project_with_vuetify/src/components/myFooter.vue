@@ -19,7 +19,7 @@
       <h3>ПОКУПЦЯМ:</h3>
       <p>КОНТАКТИ</p>
       <p>ЗАПИТАННЯ</p>
-      <p>ЗВОРОТНІЙ ЗВ"ЯЗОК</p>
+      <p @click="changePopUpVisible">ЗВОРОТНІЙ ЗВ"ЯЗОК</p>
     </div>
 
     <div class="social">
@@ -65,8 +65,14 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "myFooter",
+
+  methods: {
+    ...mapActions("popUp", ["changePopUpVisible"]),
+  },
 };
 </script>
 
@@ -78,10 +84,10 @@ export default {
   .social-grid-container {
     display: grid;
     grid-auto-flow: row;
-    .social_img > span {
-      // vertical-align: middle;
-      // font-size: 120%;
-    }
+    // .social_img > span {
+    //   vertical-align: middle;
+    //   font-size: 120%;
+    // }
   }
 }
 </style>

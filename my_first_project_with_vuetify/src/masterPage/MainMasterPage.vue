@@ -3,10 +3,11 @@
     <div class="header">
       <my-header />
     </div>
+    <popUp v-if="getPopUpVisible" />
     <div class="kontent">
       <slot name="kontent"> </slot>
     </div>
-
+    <button></button>
     <div class="footer">
       <my-footer />
     </div>
@@ -14,8 +15,11 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import myFooter from "@/components/myFooter.vue";
 import myHeader from "@/components/myHeader.vue";
+import popUp from "@/components/popUp.vue";
 
 export default {
   name: "MainMasterPage",
@@ -23,6 +27,11 @@ export default {
   components: {
     myFooter,
     myHeader,
+    popUp,
+  },
+
+  computed: {
+    ...mapGetters("popUp", ["getPopUpVisible"]),
   },
 };
 </script>
