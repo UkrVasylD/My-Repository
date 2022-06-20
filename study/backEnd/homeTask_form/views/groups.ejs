@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%-include("header")%>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <% for (group of groups) {%>
+    <ol>
+      <li>
+        <a href="/users/<%=user.id %>">
+          <%=group.name %> <%=group.age %>
+          <img src="<%=group.photo %>" alt="" width="50px" />
+          <a href="group/remove/<%=user.id %>">
+            <button>Delete</button>
+          </a>
+        </a>
+      </li>
+    </ol>
+    <%}%>
+  </body>
+</html>

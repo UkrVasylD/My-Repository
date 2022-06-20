@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <%-include("header")%>
+    <div>
+      <form action="/" method="get">
+        <label> Search title: <input type="text" name="SearchTitle" /> </label>
+        <input type="submit" value="Search" />
+      </form>
+    </div>
+    <ol>
+      <% for (product of products) {%>
+      <li>
+        <%=product.title %> <%=product.price %>
+        <img src="<%=product.photo %>" alt="" width="50px" />
+        <a href="/delete/<%=product.id %>">
+          <button>Delete by id</button>
+        </a>
+        <a href="/deleteByTitle/<%=product.title %>">
+          <button>Delete by title</button>
+        </a>
+      </li>
+    </ol>
+    <%}%>
+  </body>
+</html>

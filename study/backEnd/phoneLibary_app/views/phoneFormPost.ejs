@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%-include('header')%>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <form
+      action="/phoneList/newpost"
+      enctype="multipart/form-data"
+      method="post"
+    >
+      <label>
+        Name:
+        <input type="text" name="name" />
+      </label>
+      <br />
+      <label>
+        Image
+        <input type="file" name="image" src="" alt="" />
+      </label>
+      <br />
+      <input type="submit" value="Send" />
+    </form>
+  </body>
+</html>

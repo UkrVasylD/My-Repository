@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <div>
+      <form action="/new" enctype="multipart/form-data" method="post">
+        <div>
+          <label> Product title: <input type="text" name="title" /> </label>
+        </div>
+        <div>
+          <label> Product price: <input type="number" name="price" /> </label>
+        </div>
+        <div>
+          <label> Product photo: <input type="file" name="photo" /> </label>
+        </div>
+        <input type="submit" value="Save" />
+      </form>
+    </div>
+  </body>
+</html>

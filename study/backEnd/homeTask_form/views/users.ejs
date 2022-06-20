@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%-include("header")%>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <% for (user of users) {%>
+    <ol>
+      <li>
+        <a href="/users/<%=user.id %>">
+          <%=user.name %> <%=user.age %>
+          <img src="<%=user.photo %>" alt="" width="50px" />
+          <a href="users/remove/<%=user.id %>">
+            <button>Delete</button>
+          </a>
+        </a>
+      </li>
+    </ol>
+    <%}%>
+  </body>
+</html>
