@@ -30,7 +30,7 @@ export default {
 <style lang="scss" scoped>
 .cart-wraper {
   display: grid;
-  grid-template-columns: 1fr minmax(auto, 75vh) 1fr;
+  grid-template-columns: 1fr minmax(650px, 75vh) 1fr;
   min-height: 100%;
   // background-color: rgba(99, 143, 139, 0.75);
 

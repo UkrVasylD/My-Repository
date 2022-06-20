@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <%- include('sharch') %>
+    <ol>
+      <% for (book of books) {%>
+      <li>
+        <%= book.title%> <%= book.price%>
+        <img src="<%= book.photo%>" alt="" width="50px" />
+        <button><a href="/books/<%= book._id%>"> Delete </a></button>
+        <button><a href="/books/edit/<%= book._id%>"> Edit </a></button>
+      </li>
+      <%}%>
+    </ol>
+  </body>
+</html>

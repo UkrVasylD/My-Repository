@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <%-include('header')%>
+    <div><%= car.Brand%></div>
+    <div><%=car.Year%></div>
+    <div><%=car.Price%></div>
+    <div>
+      <img src="<%=car.Photo%>" alt="" width="150" />
+    </div>
+    <div><%=user%></div>
+    <div><%=car.CarNumber%></div>
+  </body>
+</html>

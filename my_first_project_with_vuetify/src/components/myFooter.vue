@@ -19,7 +19,7 @@
       <h3>ПОКУПЦЯМ:</h3>
       <p>КОНТАКТИ</p>
       <p>ЗАПИТАННЯ</p>
-      <p @click="changePopUpVisible">ЗВОРОТНІЙ ЗВ"ЯЗОК</p>
+      <p @click="changePopUpVisible"><a> ЗВОРОТНІЙ ЗВ"ЯЗОК</a></p>
     </div>
 
     <div class="social">
@@ -89,5 +89,6 @@ export default {
     //   font-size: 120%;
     // }
   }
+  //
 }
 </style>

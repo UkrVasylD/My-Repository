@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>title</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    Info Item
+    <p><%= infoItem[0].title %></p>
+    <ol>
+      <%for(item of infoItem ){%>
+      <li>
+        <%=item.title%>
+        <p><%=item.deacription %></p>
+      </li>
+      <%}%>
+    </ol>
+  </body>
+</html>

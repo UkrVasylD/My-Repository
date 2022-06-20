@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>title</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <ol>
+      <%for(info of infoList ){%>
+      <li>
+        <a href="infoItem/<%=info.id%>">><%=info.title%></a>
+      </li>
+      <%}%>
+    </ol>
+  </body>
+</html>

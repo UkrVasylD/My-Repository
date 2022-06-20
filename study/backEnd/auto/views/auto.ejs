@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <%-include('header')%>
+    <div>
+      <ul>
+        <% for (car of cars) {%>
+        <li>
+          <a href="/auto/info/<%=car.id%>">
+            <%=car.Brand%> <%=car.Year%> <%=car.Price%>
+            <img src="<%= car.Photo%>" alt="" width="50" />
+          </a>
+        </li>
+        <%}%>
+      </ul>
+    </div>
+  </body>
+</html>

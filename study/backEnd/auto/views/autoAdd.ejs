@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <%-include('header')%>
+
+    <form action="/auto/add" enctype="multipart/form-data" method="post">
+      <div>
+        <label> Brand <input type="text" name="Brand" /> </label>
+      </div>
+      <div>
+        <label> Year <input type="number" name="Year" /> </label>
+      </div>
+      <div>
+        <label> Price <input type="number" name="Price" /> </label>
+      </div>
+      <div>
+        <label> Photo <input type="file" name="Photo" /> </label>
+      </div>
+      <div>
+        <!-- <label> Owner <input type="text" name="Owner" /> -->
+        <select name="OwnerId" id="">
+          <% for (user of users) {%>
+                <option value="<%=user.id%>"><%=user.Owner%></option>
+            <%}%>
+
+        </select>
+        </label>
+      </div>
+      <div>
+        <label> Car number <input type="text" name="CarNumber" /> </label>
+      </div>
+      <input type="submit" value="Save" />
+    </form>
+  </body>
+</html>
