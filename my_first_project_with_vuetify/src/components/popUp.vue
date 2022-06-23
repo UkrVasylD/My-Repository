@@ -35,8 +35,9 @@ export default {
   z-index: 1;
   width: 500px;
   //   height: 300px;
-  top: 30vh;
+  top: 50vh;
   left: 50vw;
+  transform: translate(-50%, -50%);
   background-color: rgba(128, 125, 129, 0.8);
   box-shadow: 0px 0px 10px 1px #6e9c9f;
 

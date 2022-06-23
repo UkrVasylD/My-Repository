@@ -18,7 +18,7 @@
 import { mapGetters } from "vuex";
 
 import myFooter from "@/components/myFooter.vue";
-import myHeader from "@/components/myHeader.vue";
+import myHeader from "@/components/myHeader";
 import popUp from "@/components/popUp.vue";
 
 export default {

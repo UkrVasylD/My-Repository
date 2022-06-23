@@ -20,7 +20,14 @@
     <!-- <button @click="decrement(cartItem.id)">-</button> -->
 
     <div>
-      <input class="input_weight" v-model="cartItem.count" type="number" /> кг
+      <input
+        class="input_weight"
+        v-model="cartItem.count"
+        type="number"
+        min="1"
+        max="99"
+      />
+      кг
     </div>
     <v-btn
       class="mx-2"
