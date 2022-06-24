@@ -13,6 +13,7 @@
       /></label>
       <label>Email:<input type="email" placeholder="Iput your email" /></label>
       <label>Adress:<input type="text" placeholder="Iput your adress" /></label>
+      <button class="btn-send">Надіслати</button>
     </form>
     <div class="popUp_text">Ми вам зателефонуємо на протязі 30хв.</div>
   </div>
@@ -55,16 +56,21 @@ export default {
       border-bottom: 2px solid #9b9b9b;
       outline: 0;
       font-size: 17px;
-      color: #9b9b9b;
       padding: 20px 0 0 10px;
-      background: transparent;
-      transition: border-color 0.2s;
+    }
+    .btn-send {
+      border: #f1e6e6;
+      background-color: rgb(245, 201, 143);
+      max-width: 40%;
+      margin: 0 auto;
+      padding: 0 10px;
+      box-shadow: 0px 0px 5px 5px #ed7a07;
     }
   }
 
   h2 {
     text-align: center;
-    color: rgb(24, 92, 7);
+    color: rgb(13, 59, 1);
     font-weight: bold;
   }
 
@@ -75,7 +81,6 @@ export default {
   }
   .popUp_text {
     text-align: center;
-    color: rgb(13, 32, 25);
   }
 }
 </style>

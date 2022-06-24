@@ -8,14 +8,15 @@
           v-for="(value, nameObj, index) in menuListObj"
           :key="index"
           @click="goToRoutName(value.router)"
-          @mouseover="onMouseover(value.submenu)"
+          @mouseover="onMouseover(value.submenu, value.img)"
         >
-          {{ nameObj }}
+          {{ value.title }}
         </div>
         <submenu
           class="submenu"
           v-if="showSubmenu"
           :submenu="submenuData"
+          :headImg="headImg"
           @mouseleave="onMouseleave"
         />
       </div>
@@ -32,6 +33,7 @@
           <img :src="require('@/assets/Icons/cart-icon.svg')" alt="" />
           {{ getTotalPrice }} грн.
         </div>
+        <div class="editor" @click="goToRoutName('editor')">Add</div>
       </div>
     </div>
   </div>
@@ -54,6 +56,7 @@ export default {
     return {
       menuListObj,
       submenuData: null,
+      headImg: null,
       showSubmenu: false,
     };
   },
@@ -70,11 +73,13 @@ export default {
       }
     },
 
-    onMouseover(submenuItem) {
-      if (submenuItem) {
+    onMouseover(submenuItem, headImg) {
+      if ((submenuItem, headImg)) {
         this.showSubmenu = true;
       }
+
       this.submenuData = submenuItem;
+      this.headImg = headImg;
     },
 
     goToRoutName(routName) {
@@ -133,5 +138,11 @@ export default {
   top: 138px;
   background-color: rgb(172, 146, 185, 0.9);
   color: azure;
+}
+.editor {
+  &:hover {
+    color: rgb(60, 82, 60);
+    cursor: pointer;
+  }
 }
 </style>

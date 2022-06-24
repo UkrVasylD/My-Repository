@@ -2,21 +2,19 @@
   <div class="Submenu-container">
     <div></div>
     <div class="Submenu-column2">
-      <div v-for="(value, name, index) in submenu.columnList" :key="index">
-        <p @click="goToRoutName(value)" @mouseover="showImage(name)">
-          {{ name }}
+      <div v-for="(item, index) in submenu" :key="index">
+        <p @click="goToRoutName(item.router)" @mouseover="showImage(item.img)">
+          {{ item.title }}
         </p>
       </div>
     </div>
 
     <div class="Submenu-column4">
-      <!-- <img :src="showImage" alt="" /> -->
-
-      <img :src="submenuImage" alt="" v-if="submenuNameImage" />
-      <img :src="submenu.img['headerImage']" alt="" v-if="!submenuNameImage" />
+      <img :src="subImage" alt="" v-if="subImage" />
+      <img :src="headImg" alt="" v-if="!subImage" />
     </div>
     <div>
-      <!-- {{ submenuImage }} -->
+      <!-- {{ showImage }} -->
     </div>
   </div>
 </template>
@@ -26,27 +24,28 @@ export default {
   name: "Submenu",
   data() {
     return {
-      submenuNameImage: null,
+      subImage: null,
     };
   },
-  computed: {
-    submenuImage() {
-      return this.submenu.img[this.submenuNameImage];
-    },
-  },
+
   props: {
     submenu: {
       type: Object,
       default: () => ({}),
     },
+    headImg: {
+      type: Object,
+      default: () => ({}),
+    },
   },
+
   methods: {
     goToRoutName(routName) {
       this.$router.push({ name: routName });
     },
-    showImage(imageName) {
-      // return this.submenu.img[imageName];
-      return (this.submenuNameImage = imageName);
+
+    showImage(img) {
+      return (this.subImage = img);
     },
   },
 };
@@ -69,6 +68,7 @@ export default {
     grid-column-end: 5;
     img {
       max-width: 100%;
+      height: 350px;
     }
   }
   .Submenu-column2 p {
