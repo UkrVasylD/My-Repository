@@ -2,14 +2,14 @@
   <div>
     <div v-if="isEmpty">The library is empty</div>
     <div v-else>
-      <div v-for="book in books" :key="book._id" class="container">
-        <div>{{ book.title }}</div>
-        <div>{{ book.price }}</div>
-        <div>{{ book.year }}</div>
+      <div v-for="author in authors" :key="author._id" class="container">
+        <div>{{ author.name }}</div>
+        <div>{{ author.genere }}</div>
+        <div>{{ author.year }}</div>
 
         <img :src="book.photo" alt="" />
-        <button @click="onDelete(book._id)">Delete</button>
-        <button @click="onEdit(book._id)">Edit</button>
+        <button @click="onDelete(author._id)">Delete</button>
+        <button @click="onEdit(author._id)">Edit</button>
       </div>
     </div>
   </div>
@@ -21,15 +21,15 @@ export default {
   name: "Books",
 
   computed: {
-    ...mapGetters(["books"]),
+    ...mapGetters(["authors"]),
 
     isEmpty() {
-      return !this.books.length;
+      return !this.authors.length;
     },
   },
 
   methods: {
-    ...mapActions(["loadBooks", "deleteBook"]),
+    ...mapActions(["loadAuthor", "deleteBook"]),
 
     onDelete(id) {
       this.deleteBook(id);

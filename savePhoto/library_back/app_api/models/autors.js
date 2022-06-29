@@ -2,14 +2,13 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Створення схеми моделі
-const bookScheme = new Schema({
-  title: String,
-  price: Number,
+const authorScheme = new Schema({
+  name: String,
+  genere: String,
   year: Number,
-
   photo: String,
 });
 //Створення моделі
-const BookModel = mongoose.model("Book", bookScheme);
+const AuthorModel = mongoose.model("Author", authorScheme);
 
-module.exports = BookModel;
+module.exports = AuthorModel;
