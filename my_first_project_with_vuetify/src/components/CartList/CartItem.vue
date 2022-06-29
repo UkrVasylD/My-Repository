@@ -22,7 +22,7 @@
     <div>
       <input
         class="input_weight"
-        v-model="cartItem.count"
+        v-model="cartItemCount"
         type="number"
         min="1"
         max="99"
@@ -62,6 +62,17 @@ export default {
   },
   computed: {
     ...mapGetters("productToRender", ["getProductById"]),
+
+
+    cartItemCount:{
+      get:function () {
+        return this.cartItem.count
+      },
+      set:function (val) {
+        if(val>=1 &&val<=99)
+        this.cartItem.count=val
+      }
+    },
     product() {
       return this.getProductById(this.cartItem.productId);
     },
