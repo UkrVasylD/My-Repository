@@ -7,7 +7,7 @@ var cors = require("cors");
 
 var indexRouter = require("./routes/index");
 var booksRouter = require("./app_api/routes/books");
-var authorRouter = require("./app_api/routes/author");
+var authorRouter = require("./app_api/routes/authors");
 
 var app = express();
 

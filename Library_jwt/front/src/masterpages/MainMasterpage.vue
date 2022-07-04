@@ -14,14 +14,14 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex'
 export default {
-  name: "MainMasterpage",
+  name: 'MainMasterpage',
 
   computed: {
-    ...mapGetters("book", ["isLoading", "isError"]),
+    ...mapGetters('books', ['isLoading', 'isError']),
   },
-};
+}
 </script>
 
 <style lang="scss">

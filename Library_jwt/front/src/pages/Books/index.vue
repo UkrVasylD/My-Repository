@@ -5,8 +5,7 @@
       <div v-for="book in books" :key="book._id" class="container">
         <div>{{ book.title }}</div>
         <div>{{ book.price }}</div>
-        <div>{{ book.year }}</div>
-
+        <div>{{ book.owner && book.owner.name }}</div>
         <img :src="book.photo" alt="" />
         <button @click="onDelete(book._id)">Delete</button>
         <button @click="onEdit(book._id)">Edit</button>
@@ -16,33 +15,33 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from 'vuex'
 export default {
-  name: "Books",
+  name: 'Books',
 
   computed: {
-    ...mapGetters("book", ["books"]),
+    ...mapGetters('books', ['books']),
 
     isEmpty() {
-      return !this.books.length;
+      return !this.books.length
     },
   },
 
   methods: {
-    ...mapActions("book", ["loadBooks", "deleteBook"]),
+    ...mapActions('books', ['loadBooks', 'deleteBook']),
 
     onDelete(id) {
-      this.deleteBook(id);
+      this.deleteBook(id)
     },
     onEdit(id) {
-      this.$router.push({ name: "bookEdit", params: { id } });
+      this.$router.push({ name: 'bookEdit', params: { id } })
     },
   },
 
   mounted() {
-    this.loadBooks();
+    this.loadBooks()
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

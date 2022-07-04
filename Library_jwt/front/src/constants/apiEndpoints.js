@@ -6,11 +6,9 @@ export default {
     getBookById: (id) => `${process.env.VUE_APP_API_URL}/books/${id}`,
     delete: `${process.env.VUE_APP_API_URL}/books`,
   },
-  authors: {
-    readList: `${process.env.VUE_APP_API_URL}/authors`,
-    add: `${process.env.VUE_APP_API_URL}/authors`,
-    update: `${process.env.VUE_APP_API_URL}/authors`,
-    getAuthorById: (id) => `${process.env.VUE_APP_API_URL}/authors/${id}`,
-    delete: `${process.env.VUE_APP_API_URL}/authors`,
+  user: {
+    usersList: `${process.env.VUE_APP_API_URL}/users`,
+    signup: `${process.env.VUE_APP_API_URL}/users/signup`,
+    login: `${process.env.VUE_APP_API_URL}/users/login`,
   },
-};
+}

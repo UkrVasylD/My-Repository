@@ -2,20 +2,20 @@
   <div>
     <div>
       <label>
-        Name
-        <input type="text" v-model="author.name" />
+        Title
+        <input type="text" v-model="book.title" />
       </label>
     </div>
     <div>
       <label>
-        Age
-        <input type="number" v-model="author.age" />
+        Price
+        <input type="number" v-model="book.price" />
       </label>
     </div>
     <div>
       <label>
-        Genre
-        <input type="text" v-model="author.genre" />
+        Year
+        <input type="number" v-model="book.year" />
       </label>
     </div>
     <div>
@@ -32,29 +32,29 @@
 <script>
 import { mapActions } from "vuex";
 export default {
-  name: "AuthorEdit",
+  name: "Book",
 
   data() {
     return {
-      author: {},
+      book: {},
       rawPhotoData: null,
     };
   },
 
   computed: {
     photoSrc() {
-      return this.rawPhotoData || this.author.photo;
+      return this.rawPhotoData || this.book.photo;
     },
-    receivedAuthorId() {
+    receivedBookId() {
       return this.$route.params.id;
     },
     btnLabel() {
-      return this.receivedAuthorId ? "Update" : "Add";
+      return this.receivedBookId ? "Update" : "Add";
     },
   },
 
   methods: {
-    ...mapActions("author", ["getAuthorById", "addAuthor", "updateAuthor"]),
+    ...mapActions("book", ["getBookById", "addBook", "updateBook"]),
 
     createLogoImage(event) {
       const file = event.target.files[0];
@@ -62,18 +62,18 @@ export default {
       const self = this;
       reader.onload = (e) => {
         self.rawPhotoData = e.target.result;
-        self.author.photo = e.target.result;
-        console.log("self.author.photo");
-        console.log(self.author.photo);
+        self.book.photo = e.target.result;
+        console.log("self.book.photo");
+        console.log(self.book.photo);
       };
       reader.readAsDataURL(file);
     },
 
     async onSave() {
       try {
-        if (!this.receivedAuthorId) await this.addAuthor(this.author);
-        else await this.updateAuthor(this.author);
-        this.$router.push({ name: "authors" });
+        if (!this.receivedBookId) await this.addBook(this.book);
+        else await this.updateBook(this.book);
+        this.$router.push({ name: "books" });
       } catch (err) {
         console.log(err);
       }
@@ -81,11 +81,11 @@ export default {
   },
 
   async mounted() {
-    if (this.receivedAuthorId) {
+    if (this.receivedBookId) {
       try {
-        this.author = await this.getAuthorById(this.receivedAuthorId);
-        console.log("this.author");
-        console.log(this.author);
+        this.book = await this.getBookById(this.receivedBookId);
+        console.log("this.book");
+        console.log(this.book);
       } catch (err) {
         console.log(err);
       }

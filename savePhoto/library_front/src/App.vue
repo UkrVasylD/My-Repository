@@ -4,6 +4,8 @@
       <router-link to="/">Home</router-link>
       <router-link to="/books">Books</router-link>
       <router-link to="/book">Add book</router-link>
+      <router-link to="/authors">Authors</router-link>
+      <router-link to="/author">Add author</router-link>
     </template>
 
     <router-view></router-view>
@@ -11,13 +13,13 @@
 </template>
 
 <script>
-import MainMasterpage from '@/masterpages/MainMasterpage'
+import MainMasterpage from "@/masterpages/MainMasterpage";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     MainMasterpage,
   },
-}
+};
 </script>
 
 <style>
